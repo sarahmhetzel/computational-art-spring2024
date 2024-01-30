@@ -3,7 +3,7 @@ let numCircles = 100;
 
 function setup() {
     createCanvas(600, 600);
-    background('pink');
+    //background('pink');
 
     for (let i = 0; i < numCircles; i++) {
         circleArray[i] = new Circ();
@@ -13,7 +13,7 @@ function setup() {
 
 
 function draw() {
-    background('pink');
+    background(227, 194, 255);
     fill(0, 30);
     rect(0, 0, width, height);
 
