@@ -1,12 +1,12 @@
 class Dot {
     constructor(x, y, index) {
         this.pos = createVector(x, y);
-        this.vel = createVector(0, 0);
-        this.acc = createVector(0, 0);
+        this.vel = createVector(random(5), 0);
+        this.acc = createVector(5, 0);
 
         this.index = index;
 
-        this.hue = map(this.index, 0, numberDots, 330, 345);
+        this.hue = map(this.index, 0, numberDots, 260, 345);
 
         this.mass = this.index;
 
@@ -32,7 +32,7 @@ class Dot {
 
                 vectorToOther.normalize();
                 vectorToOther.mult(gForce);
-                vectorToOther.mult(-1);
+                vectorToOther.mult(-2);
                 dot.addForce(vectorToOther);
             }
         }
@@ -43,7 +43,7 @@ class Dot {
         this.gravityOtherDots();
 
         this.vel.add(this.acc);
-        this.vel.limit(5);
+        this.vel.limit(6);
         this.pos.add(this.vel);
 
         this.wrap();
@@ -55,6 +55,7 @@ class Dot {
         push();
 
         //noStroke();
+        stroke('white');
 
         translate(this.pos.x, this.pos.y);
         fill(this.hue, 50, 100, 0.5);
