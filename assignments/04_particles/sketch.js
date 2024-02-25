@@ -2,6 +2,8 @@ let pSystems = [];
 let numSystems = 3;
 let wind;
 
+let a = 10;
+let z = 2;
 
 function setup() {
     createCanvas(600, 600);
@@ -62,9 +64,32 @@ function draw() {
 	circle(500, 350, 100);
 	circle(500, 300, 150);
 
+	//sun
+	fill(49, 44, 100);
+	ellipse(a - 10, 50, 90, 90);
+
+	//clouds
+	fill(217, 0, 100, 0.8);
+	ellipse(a, 100, 50, 50);
+	ellipse(a, 110, 75, 50);
+	ellipse(a + 50, 100, 100, 50);
+	ellipse(a + 20, 80, 100, 75);
+
+	ellipse(a + 200, 90, 100, 50);
+	ellipse(a + 200, 80, 75, 75);
+	ellipse(a + 250, 85, 50, 50);
+
+	a = a + z;
+
+	if (a > width - 10 || a < 10) {
+		z = -z;
+    }
+
+
 
 
     for (let pSys of pSystems) {
         pSys.update();
-    }
+	}
+
 }
