@@ -24,7 +24,7 @@ function setup() {
 }
 
 function draw() {
-    background(0, 0, 100, 0, 0.1);
+    background(0, 0, 100, 0, 0.5);
 
     for (let dot of dotArray) {
         dot.update();
