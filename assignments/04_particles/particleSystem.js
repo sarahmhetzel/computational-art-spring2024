@@ -13,7 +13,7 @@ class ParticleSystem {
 
     update() {
         if (this.active) {
-            this.particles.push(new Particle(this.pos.x, this.pos.y+100, this.hue));
+            this.particles.push(new Particle(this.pos.x + random(200), this.pos.y+random(100), this.hue));
         }
 
 

@@ -40,16 +40,18 @@ class Particle {
     show() {
         push();
 
-        translate(this.pos.x, this.pos.y+200);
+        translate(this.pos.x, this.pos.y+ 200);
         noStroke();
+        //let ellipseX = random(0, 100);
+        //let ellipseY = random(0, 100);
         fill(this.hue, 20, 100, 0.5);
         //console.log(this.hue);
         ellipse(0, 0, this.radius * 2);
         fill(this.hue + 10, 20, 100, 0.6);
         ellipse(5, 5, this.radius * 3);
-        ellipse(-5, 5, this.radius * 3);
+        ellipse(- 5, 5, this.radius * 3);
         ellipse(5, -5, this.radius * 3);
-        ellipse(-5, -5, this.radius * 3);
+        ellipse( - 5, -5, this.radius * 3);
         pop();
     }
 }
