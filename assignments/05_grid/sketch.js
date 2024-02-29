@@ -32,7 +32,7 @@ function createGrid() {
 
             translate(x, y);
 
-            let hue = map(noise(x, y), 0, 1, 200, 300);
+            let hue = map(sin(x, y), 0, 1, 200, 300);
             fill(hue+20, 40, 100);
             rect(0, 0, cellWidth, cellHeight);
 
