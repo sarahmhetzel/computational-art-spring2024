@@ -1,11 +1,11 @@
-let widthNum = 10;
-let heightNum = 10;
+let widthNum = 30;
+let heightNum = 20;
 let cellWidth;
 let cellHeight;
 
 function setup() {
  // put setup code here
-    createCanvas(600, 600);
+    createCanvas(windowWidth, windowHeight);
     colorMode(HSB);
 
     cellWidth = width / widthNum;
@@ -21,6 +21,7 @@ function draw() {
 }
 
 function createGrid() {
+    noStroke();
     for (let i = 0; i < widthNum; i++) {
         for (let j = 0; j < heightNum; j++) {
             let x = cellWidth * i;
@@ -32,7 +33,7 @@ function createGrid() {
 
             translate(x, y);
 
-            let hue = map(sin(x, y), 0, 1, 200, 300);
+            let hue = map(sin(x), 0, 1, 200, 300);
             fill(hue+20, 40, 100);
             rect(0, 0, cellWidth, cellHeight);
 
