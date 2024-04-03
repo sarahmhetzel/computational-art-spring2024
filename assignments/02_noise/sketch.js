@@ -1,30 +1,44 @@
-let xChange = 0;
-let yChange = 0;
-let n = 0;
-let z = 3;
+let xoff = 2;
+let initialRadius = 0;
 
 function setup() {
     colorMode(HSB);
     createCanvas(500, 500);
-    background('black');
-
-    noStroke();
     
 }
 
 function draw() {
-    let xOffset = noise(xChange);
-    let yOffset = noise(yChange);
+    background(0, 0, 0, 0.05);
 
-    let hue = map(xChange*2, 0, 100, 100, 300);
+    push();
 
-    let x = map(xOffset, 0, 1, 0, width);
-    let y = map(yOffset, 0, 1, 0, height);
+    translate(width / 2, height / 2);
 
-    fill(hue, 50, 100);
-    ellipse(x, y, 10, 10);
+    noFill();
 
-    xChange += 0.03;
-    yChange += 0.02;
+    beginShape();
+    let hue = (map((frameCount * 0.05), 0, 20, 100, 360)) % 360;
+    //console.log(frameCount);
+
+    strokeWeight(2);
+    stroke(hue, 70, 80);
+
+    initialRadius = map(mouseX, 0, width, 1, 100);
+
+    for (let i = 0; i < 128 * PI; i += 0.1) {
+        let radius = initialRadius + map(noise(xoff), 0, 1, -15, 15);
+
+        let x = radius * cos(i);
+        let y = radius * sin(i);
+
+        vertex(x, y);
+        xoff += 0.2;
+
+        initialRadius += 0.3;
+    }
+
+    endShape();
+
+    pop();
 
 }
