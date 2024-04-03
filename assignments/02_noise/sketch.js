@@ -41,4 +41,35 @@ function draw() {
 
     pop();
 
+    push();
+
+    translate(width / 2, height / 2);
+
+    noFill();
+
+    beginShape();
+    let hue2 = (map((frameCount * 0.05), 0, 20, 0, 260)) % 360;
+    //console.log(frameCount);
+
+    strokeWeight(2);
+    stroke(hue2, 40, 80);
+
+    initialRadius = map(mouseX, 0, width, 1, 100);
+
+    for (let i = 0; i < 128 * PI; i += 0.1) {
+        let radius = initialRadius + map(noise(xoff), 0, 1, -10, 10);
+
+        let x = radius * cos(i);
+        let y = radius * sin(i);
+
+        vertex(x, y);
+        xoff += 0.2;
+
+        initialRadius += 0.5;
+    }
+
+    endShape();
+
+    pop();
+
 }
