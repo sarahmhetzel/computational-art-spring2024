@@ -6,11 +6,11 @@ class Dot {
 
         this.index = index;
 
-        this.hue = map(this.index, 0, numberDots, 260, 345);
+        this.hue = map(this.index, 0, numberDots, 215, 330);
 
         this.mass = this.index;
 
-        this.radius = 10 + sqrt(this.mass) * 10;
+        this.radius = sqrt(this.mass) * 5;
     }
 
     wrap() {
@@ -38,9 +38,21 @@ class Dot {
         }
     }
 
+    waterDrag() {
+        let dragConstant = -0.5;
+        let dragForce = this.vel.mag() * this.vel.mag() * dragConstant;
+        let drag = p5.Vector.normalize(this.vel);
+        drag.mult(dragForce);
+        this.addForce(drag);
+    }
+
     update() {
         this.addForce(downGravity);
-        this.gravityOtherDots();
+        //this.gravityOtherDots();
+
+        if (this.pos.y + this.radius > height / 2) {
+            this.waterDrag();
+        }
 
         this.vel.add(this.acc);
         this.vel.limit(6);
@@ -55,10 +67,12 @@ class Dot {
         push();
 
         //noStroke();
-        stroke('white');
+        //strokeWeight(1);
+        //stroke('white');
 
         translate(this.pos.x, this.pos.y);
         fill(this.hue, 50, 100, 0.5);
+
         ellipse(0, 0, this.radius * 5);
 
         pop();
