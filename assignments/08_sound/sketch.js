@@ -26,7 +26,7 @@ let root = 60;
 
 function preload() {
     drumSample = loadSound("https://sarahmhetzel.github.io/computational-art-spring2024/assignments/08_sound/samples/kick.wav");
-    //altSample = loadSound("")
+    altSample = loadSound("https://sarahmhetzel.github.io/computational-art-spring2024/assignments/08_sound/samples/alt.wav");
 }
 
 function setup() {
