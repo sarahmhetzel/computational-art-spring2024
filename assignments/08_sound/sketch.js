@@ -88,6 +88,12 @@ if(interval % 8 == 0){
 function draw() {
   background(0, 0, 0, 0.1);
 
+  if(firstClick == 0){
+    textSize(32);
+    fill(0, 0, 100);
+    text('click to begin', width/2-100, height/2);
+  }
+
   //let h = (map(frameCount, 0, 2000, 100, 300));
   //fill(h, 50, 70);
   for (let shape of shapes){
