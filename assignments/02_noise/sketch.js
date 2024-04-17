@@ -4,7 +4,6 @@ let initialRadius = 0;
 function setup() {
     colorMode(HSB);
     createCanvas(500, 500);
-    
 }
 
 function draw() {
@@ -49,7 +48,6 @@ function draw() {
 
     beginShape();
     let hue2 = (map((frameCount * 0.05), 0, 20, 0, 260)) % 360;
-    //console.log(frameCount);
 
     strokeWeight(2);
     stroke(hue2, 40, 80);
