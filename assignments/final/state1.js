@@ -16,6 +16,7 @@ class State1{
         }
     }
     draw(){
+        colorMode(HSB);
         background(0, 0, 0);
         image(backgroundImage, 0, 0);
       
