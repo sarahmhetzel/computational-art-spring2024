@@ -54,7 +54,7 @@ let reverb;
 let shapes = [];
 let numShapes = 15; 
 
-let flamSet = [0, 4, 7, 11];
+let noteSet = [0, 4, 7, 11];
 let interval = 0;
 
 let root = 48;
@@ -118,8 +118,8 @@ function soundLoop(timeFromNow){
     }
   }
 
-  let soundIndex = interval % flamSet.length;
-  note = midiToFreq(root + flamSet[soundIndex]);
+  let soundIndex = interval % noteSet.length;
+  note = midiToFreq(root + noteSet[soundIndex]);
   synth.play(note, 0.8, timeFromNow, 0.2);
 
   let drumIndex = interval % drumSequence.length;
