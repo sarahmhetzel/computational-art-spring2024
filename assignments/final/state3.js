@@ -37,6 +37,8 @@ class State3{
         this.treeReverse(60);
         pop();
 
+
+
         for(let angler of anglers){
             angler.update();
             angler.show();
@@ -106,5 +108,7 @@ class State3{
 
     mousePressed(){
         currentState = startState;
+
+        //funSong.play();
     }
 }

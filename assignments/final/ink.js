@@ -1,12 +1,12 @@
 class Ink{
     constructor(x, y){
         this.pos = createVector(x, y);
-        this.vel = createVector(random(0, 5), random(0, 1));
+        this.vel = createVector(random(0, 5), random(0, 5));
         this.acc = createVector(0, 0);
 
-        this.mass = 4;
-        this.radius = 1 + sqrt(this.mass);
-        this.lifetime = random(100, 200);
+        this.mass = 1;
+        //this.radius = 1 + sqrt(this.mass);
+        this.lifetime = random(30, 70);
     }
 
     addForce(force){
@@ -32,8 +32,12 @@ class Ink{
         push();
 
         translate(this.pos.x, this.pos.y);
-        fill(0, 0, 0);
-        ellipse(0, 0, 20);
+        //fill(0, 0, 0);
+        //ellipse(0, 0, 5);
+
+        image(inkImg, 0, 0);
+
+        pop();
 
     }
 }

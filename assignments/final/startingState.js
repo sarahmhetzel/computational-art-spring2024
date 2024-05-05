@@ -1,10 +1,11 @@
 class Start{
     constructor(){
         subImg.resize(0, 900);
+
+        //funSong.play();
     }
     draw(){
         background(0,0,0);
-        
 
         colorMode(RGB, 100);
 
@@ -32,11 +33,13 @@ class Start{
         rect(0, 0, width, height);
         textSize(32);
         fill(0, 0, 0);
-        textFont('Verdana');
+        textFont('Courier New');
         text('welcome deep sea explorer', 30, 30);
         text('click to begin your journey', 30, 60);
     }
     mousePressed(){
         currentState = state1;
+
+        funSong.pause();
     }
 }
